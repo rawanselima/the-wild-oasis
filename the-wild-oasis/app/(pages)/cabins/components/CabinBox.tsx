@@ -35,7 +35,12 @@ function CabinBox({ cabin }: CabinBoxProps) {
           
           <div className="flex justify-end mt-8">
             <p className="flex items-baseline gap-2">
-              <span className="text-4xl text-slate-100 font-light">${regularPrice}</span>
+              <span className={` text-slate-100 font-light ${discount > 0 ? 'line-through text-slate-400 text-xl' : 'text-4xl'}`}>${regularPrice}</span>
+              {discount > 0 && (
+                <span className="text-4xl text-emerald-500 font-bold">
+                  ${(regularPrice - discount).toFixed(0)}
+                </span>
+              )}
               <span className="text-slate-300">/ night</span>
             </p>
           </div>

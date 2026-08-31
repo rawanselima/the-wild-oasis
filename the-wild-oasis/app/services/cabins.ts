@@ -5,14 +5,27 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!
 );
 
-export async function getCabins(page: number = 1, limit: number = 10) {
+export async function getCabins(page: number = 1, limit: number = 10, capacity: string = 'all') {
     const from = (page - 1) * limit;
     const to = from + limit - 1;
 
-    const { data, error, count } = await supabase
-    .from("cabin")
-    .select("*", { count: "exact" })
-    .range(from, to);
+    let query = supabase
+        .from("cabin")
+        .select("*", { count: "exact" });
+
+    if (capacity === 'small') {
+        query = query.lte('maxCapacity', 3);
+    }
+    if (capacity === 'medium') {
+        query = query.gte('maxCapacity', 4).lte('maxCapacity', 7);
+    }
+    if (capacity === 'large') {
+        query = query.gte('maxCapacity', 8);
+    }
+
+    query = query.range(from, to);
+
+    const { data, error, count } = await query;
 
     if (error) {
         console.error("Error fetching cabins:", error);
