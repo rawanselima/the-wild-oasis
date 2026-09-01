@@ -1,7 +1,12 @@
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 function Header() {
+  const pathname = usePathname()
+  console.log(pathname);
   return (
     <header className="px-8 py-5 z-20">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
@@ -21,10 +26,10 @@ function Header() {
         <nav className="z-20 text-lg">
           <ul className="flex items-center gap-8 text-slate-200">
             <li>
-              <Link href="/cabins" className="hover:text-white transition-colors">Cabins</Link>
+              <Link href="/cabins" className={`${pathname === "/cabins" ? "text-yellow" : ""} hover:text-yellow transition-colors`}>Cabins</Link>
             </li>
             <li>
-              <Link href="/about" className="hover:text-white transition-colors">About</Link>
+              <Link href="/about" className={`${pathname === "/about" ? "text-yellow" : ""} hover:text-yellow transition-colors`}>About</Link>
             </li>
             <li>
               <Link href="/profile" className="flex items-center gap-2 hover:text-white transition-colors">

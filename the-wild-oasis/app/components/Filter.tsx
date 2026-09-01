@@ -38,7 +38,7 @@ const Filter = ({ filterField, options }: FilterProps) => {
         <button
           key={option.value}
           onClick={() => handleFilter(option.value)}
-          className={`px-5 py-2 hover:bg-gray hover:text-white transition-colors ${
+          className={`cursor-pointer px-5 py-2 hover:bg-gray hover:text-white transition-colors ${
             currentFilter === option.value
               ? 'bg-gray text-white'
               : 'text-light-gray'

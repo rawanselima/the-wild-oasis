@@ -36,3 +36,11 @@ export async function getCabins(page: number = 1, limit: number = 10, capacity: 
 }
 
 
+export async function getCabinDetails(id: string | number) {
+    const { data, error } = await supabase.from('cabin').select('*').eq('id', id).single();
+    if (error) {
+        console.error("Error fetching cabin:", error);
+        throw error;
+    }
+    return data;
+}

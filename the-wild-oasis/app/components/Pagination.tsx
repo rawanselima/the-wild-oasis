@@ -50,7 +50,7 @@ export default function Pagination({
       <button
         onClick={prevPage}
         disabled={currentPage === 1}
-        className="p-2 rounded-full hover:bg-yellow hover:text-slate-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        className="p-2 cursor-pointer rounded-full hover:bg-yellow hover:text-slate-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
       >
         <ChevronLeftIcon className="h-5 w-5" />
       </button>
@@ -60,7 +60,7 @@ export default function Pagination({
           <button
             key={page}
             onClick={() => setPage(page)}
-            className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
+            className={`cursor-pointer w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
               currentPage === page
                 ? "bg-yellow text-slate-900 font-bold"
                 : "hover:bg-yellow/20 text-slate-100"
@@ -74,7 +74,7 @@ export default function Pagination({
       <button
         onClick={nextPage}
         disabled={currentPage === pageCount}
-        className="p-2 rounded-full hover:bg-yellow hover:text-slate-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        className="p-2 cursor-pointer rounded-full hover:bg-yellow hover:text-slate-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
       >
         <ChevronRightIcon className="h-5 w-5" />
       </button>

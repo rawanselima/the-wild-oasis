@@ -6,12 +6,12 @@ import Spinner from './Spinner';
 import { ImageLoaderProps } from '../types/general';
 
 
-export default function ImageLoader({ image, name , className }: ImageLoaderProps) {
+export default function ImageLoader({ image, name , className, containerClassName }: ImageLoaderProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
   return (
-    <div className="relative h-64 w-full overflow-hidden bg-primary-950/20">
+    <div className={`relative h-full w-full overflow-hidden bg-primary-950/20 ${containerClassName ?? ''}`}>
       {/* إظهار الـ Spinner طالما الصورة في حالة التحميل */}
       {isLoading && !hasError && (
         <div className="absolute inset-0 flex items-center justify-center">
