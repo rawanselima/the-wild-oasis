@@ -21,6 +21,7 @@ const CabinData = ({ cabin }: CabinDataProps) => {
         <div className="min-h-[450px] grid grid-cols-[.8fr_1fr] gap-0 border border-gray overflow-visible">
 
             {/* ── Left: Image ── */}
+            
             <div className="relative -my-8 min-h-[420px]">
                 <ImageLoader
                     image={image}
@@ -28,7 +29,7 @@ const CabinData = ({ cabin }: CabinDataProps) => {
                     className="object-cover"
                     containerClassName="h-full"
                 />
-                
+                 
             </div>
 
             {/* ── Right: Details ── */}
